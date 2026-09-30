@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1011"><meta name="description" content="A market-inspired currency dashboard with current exchange rates and historical charts."><title>Ticker FX — Currency terminal</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="./"><span class="mark">t<span>↗</span></span>TICKER<span class="muted">/ FX</span></a><span class="header-tag">CURRENCY TERMINAL</span><span class="feed" id="feed">Connecting to market data</span></header>
+<main>
+<div class="page-heading"><div><div class="eyebrow">GLOBAL EXCHANGE / OVERVIEW</div><h1>Every currency.<br><span>One clear view.</span></h1></div><p>Your next move, converted.<br>Current reference rates. Real perspective.</p></div>
+<section class="ticker-strip" id="ticker" aria-label="Major exchange rates"><span class="muted">Loading currency markets…</span></section>
+<div class="workspace">
+<section class="panel converter"><div class="panel-top"><h2>Currency converter</h2><span class="pill">FX</span></div><p class="muted intro">From here to anywhere.</p>
+<label for="amount">YOU SEND</label><div class="amount-box"><input id="amount" type="number" min="0" step="any" value="1000" inputmode="decimal" aria-label="Amount to convert"><select id="from" aria-label="From currency"><option>USD</option><option>EUR</option><option>GBP</option></select></div>
+<div class="swap-line"><span></span><button id="swap" aria-label="Swap currencies" title="Swap currencies">⇅</button><span></span></div>
+<label for="to">YOU RECEIVE</label><div class="amount-box result-box"><output id="result" aria-live="polite">—</output><select id="to" aria-label="To currency"><option>EUR</option><option>USD</option><option>GBP</option></select></div>
+<div class="rate-line" id="rate">Fetching the latest rate…</div><button class="refresh" id="refresh">Refresh rates <span>↻</span></button><div class="source-note" id="updated">Reference rates update daily. Auto-refresh every 5 minutes.</div><p id="error" role="alert" hidden></p>
+</section>
+<section class="panel chart-panel"><div class="panel-top"><div><div class="eyebrow">EXCHANGE RATE</div><h2 id="pair">USD / EUR</h2></div><div class="periods" aria-label="Chart period"><button data-days="7">1W</button><button data-days="30" class="active" aria-pressed="true">1M</button><button data-days="90">3M</button><button data-days="365">1Y</button></div></div><div class="chart-head"><strong id="chart-rate">—</strong><span id="change" class="change">Loading history</span></div><div class="chart-wrap"><svg id="chart" viewBox="0 0 800 270" role="img" aria-label="Historical exchange rate chart"></svg><div id="chart-empty" class="chart-empty">Loading market history…</div></div><div class="chart-dates"><span id="start-date">—</span><span id="end-date">—</span></div><div class="chart-footer"><span><i class="legend"></i> Daily reference rate</span><span id="range-label">PAST 30 DAYS</span></div></section>
+</div>
+<section class="panel market"><div class="panel-top"><div><div class="eyebrow">THE BIG PICTURE</div><h2>Currency board</h2></div><span id="board-base" class="muted">Against USD</span></div><div class="table-wrap"><table><thead><tr><th>Currency</th><th>Exchange rate</th><th>Previous-day change</th><th>Rate date</th></tr></thead><tbody id="board"><tr><td colspan="4">Fetching reference rates…</td></tr></tbody></table></div></section>
+<footer><span class="brand small">TICKER <span class="muted">/ FX</span></span><span>Data by <a href="https://frankfurter.dev/" target="_blank" rel="noopener">Frankfurter</a> · Daily reference rates, not executable quotes.</span><span id="clock"></span></footer>
+</main><script src="app.js" defer></script></body></html>
